@@ -1,0 +1,23 @@
+<h2>Show Propietario</h2>
+
+<ul>
+
+  <li>
+    <strong>Nombre:</strong>
+    <%= @propietario.nombre %>
+  </li>
+
+  <li>
+    <strong>Cedula:</strong>
+    <%= @propietario.cedula %>
+  </li>
+
+  <li>
+    <strong>Vehiculos:</strong>
+    <%= @propietario.vehiculos %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: propietario_path(@conn, :edit, @propietario) %></span>
+<span><%= link "Back", to: propietario_path(@conn, :index) %></span>

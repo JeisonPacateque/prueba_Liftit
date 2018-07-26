@@ -17,6 +17,10 @@ defmodule Prueba_LiftitWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+
+    resources "/propietario", PropietarioController
+
+    resources "/vehiculo", VehiculoController
   end
 
   # Other scopes may use custom stacks.

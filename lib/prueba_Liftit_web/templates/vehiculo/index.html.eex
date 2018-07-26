@@ -1,0 +1,32 @@
+<h2>Listing Vehiculo</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Placa</th>
+      <th>Marca</th>
+      <th>Tipo</th>
+      <th>Propietario</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for vehiculo <- @vehiculo do %>
+    <tr>
+      <td><%= vehiculo.placa %></td>
+      <td><%= vehiculo.marca %></td>
+      <td><%= vehiculo.tipo %></td>
+      <td><%= vehiculo.propietario %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: vehiculo_path(@conn, :show, vehiculo), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: vehiculo_path(@conn, :edit, vehiculo), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: vehiculo_path(@conn, :delete, vehiculo), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Vehiculo", to: vehiculo_path(@conn, :new) %></span>

@@ -1,0 +1,28 @@
+<h2>Show Vehiculo</h2>
+
+<ul>
+
+  <li>
+    <strong>Placa:</strong>
+    <%= @vehiculo.placa %>
+  </li>
+
+  <li>
+    <strong>Marca:</strong>
+    <%= @vehiculo.marca %>
+  </li>
+
+  <li>
+    <strong>Tipo:</strong>
+    <%= @vehiculo.tipo %>
+  </li>
+
+  <li>
+    <strong>Propietario:</strong>
+    <%= @vehiculo.propietario %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: vehiculo_path(@conn, :edit, @vehiculo) %></span>
+<span><%= link "Back", to: vehiculo_path(@conn, :index) %></span>
