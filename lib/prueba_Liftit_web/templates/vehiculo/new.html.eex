@@ -1,4 +1,4 @@
-<h2>Agregar Vehiculo</h2>
+<h2>Añadir Vehiculo</h2>
 
 <%= render "form.html", Map.put(assigns, :action, vehiculo_path(@conn, :create)) %>
 

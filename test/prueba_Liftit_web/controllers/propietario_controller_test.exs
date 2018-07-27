@@ -12,17 +12,17 @@ defmodule Prueba_LiftitWeb.PropietarioControllerTest do
     propietario
   end
 
-  describe "index" do
-    test "lists all propietario", %{conn: conn} do
+  describe "index propietarios" do
+    test "Lista todos los propietarios", %{conn: conn} do
       conn = get conn, propietario_path(conn, :index)
-      assert html_response(conn, 200) =~ "Listing Propietario"
+      assert html_response(conn, 200) =~ "Lista de propietarios"
     end
   end
 
-  describe "new propietario" do
+  describe "nuevo propietario" do
     test "renders form", %{conn: conn} do
       conn = get conn, propietario_path(conn, :new)
-      assert html_response(conn, 200) =~ "New Propietario"
+      assert html_response(conn, 200) =~ "Añadir Propietario"
     end
   end
 
@@ -34,12 +34,12 @@ defmodule Prueba_LiftitWeb.PropietarioControllerTest do
       assert redirected_to(conn) == propietario_path(conn, :show, id)
 
       conn = get conn, propietario_path(conn, :show, id)
-      assert html_response(conn, 200) =~ "Show Propietario"
+      assert html_response(conn, 200) =~ "Propietario"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
       conn = post conn, propietario_path(conn, :create), propietario: @invalid_attrs
-      assert html_response(conn, 200) =~ "New Propietario"
+      assert html_response(conn, 200) =~ "Añadir Propietario"
     end
   end
 
@@ -48,7 +48,7 @@ defmodule Prueba_LiftitWeb.PropietarioControllerTest do
 
     test "renders form for editing chosen propietario", %{conn: conn, propietario: propietario} do
       conn = get conn, propietario_path(conn, :edit, propietario)
-      assert html_response(conn, 200) =~ "Edit Propietario"
+      assert html_response(conn, 200) =~ "Editar Propietario"
     end
   end
 
@@ -65,7 +65,7 @@ defmodule Prueba_LiftitWeb.PropietarioControllerTest do
 
     test "renders errors when data is invalid", %{conn: conn, propietario: propietario} do
       conn = put conn, propietario_path(conn, :update, propietario), propietario: @invalid_attrs
-      assert html_response(conn, 200) =~ "Edit Propietario"
+      assert html_response(conn, 200) =~ "Editar Propietario"
     end
   end
 

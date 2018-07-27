@@ -15,7 +15,7 @@ defmodule Prueba_LiftitWeb.ErrorView do
   end
 
   def render("404.html", _assigns) do
-    "Page not found"
+    "Not Found"
   end
 
 end

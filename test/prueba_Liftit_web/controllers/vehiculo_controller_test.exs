@@ -13,16 +13,16 @@ defmodule Prueba_LiftitWeb.VehiculoControllerTest do
   end
 
   describe "index" do
-    test "lists all vehiculo", %{conn: conn} do
+    test "lista todos  los vehiculos", %{conn: conn} do
       conn = get conn, vehiculo_path(conn, :index)
-      assert html_response(conn, 200) =~ "Listing Vehiculo"
+      assert html_response(conn, 200) =~ "Lista de vehiculos"
     end
   end
 
-  describe "new vehiculo" do
+  describe "nuevo vehiculo" do
     test "renders form", %{conn: conn} do
       conn = get conn, vehiculo_path(conn, :new)
-      assert html_response(conn, 200) =~ "New Vehiculo"
+      assert html_response(conn, 200) =~ "Añadir Vehiculo"
     end
   end
 
@@ -34,12 +34,12 @@ defmodule Prueba_LiftitWeb.VehiculoControllerTest do
       assert redirected_to(conn) == vehiculo_path(conn, :show, id)
 
       conn = get conn, vehiculo_path(conn, :show, id)
-      assert html_response(conn, 200) =~ "Show Vehiculo"
+      assert html_response(conn, 200) =~ "Ver Vehiculo"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
       conn = post conn, vehiculo_path(conn, :create), vehiculo: @invalid_attrs
-      assert html_response(conn, 200) =~ "New Vehiculo"
+      assert html_response(conn, 200) =~ "Añadir Vehiculo"
     end
   end
 
@@ -48,7 +48,7 @@ defmodule Prueba_LiftitWeb.VehiculoControllerTest do
 
     test "renders form for editing chosen vehiculo", %{conn: conn, vehiculo: vehiculo} do
       conn = get conn, vehiculo_path(conn, :edit, vehiculo)
-      assert html_response(conn, 200) =~ "Edit Vehiculo"
+      assert html_response(conn, 200) =~ "Editar Vehiculo"
     end
   end
 
@@ -65,7 +65,7 @@ defmodule Prueba_LiftitWeb.VehiculoControllerTest do
 
     test "renders errors when data is invalid", %{conn: conn, vehiculo: vehiculo} do
       conn = put conn, vehiculo_path(conn, :update, vehiculo), vehiculo: @invalid_attrs
-      assert html_response(conn, 200) =~ "Edit Vehiculo"
+      assert html_response(conn, 200) =~ "Editar Vehiculo"
     end
   end
 
