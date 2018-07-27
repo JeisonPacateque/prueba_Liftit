@@ -1,14 +1,14 @@
 defmodule Prueba_LiftitWeb.PropietarioControllerTest do
   use Prueba_LiftitWeb.ConnCase
 
-  alias Prueba_Liftit.Web
+  alias Prueba_Liftit.Propietario
 
   @create_attrs %{cedula: "some cedula", nombre: "some nombre", vehiculos: "some vehiculos"}
   @update_attrs %{cedula: "some updated cedula", nombre: "some updated nombre", vehiculos: "some updated vehiculos"}
   @invalid_attrs %{cedula: nil, nombre: nil, vehiculos: nil}
 
   def fixture(:propietario) do
-    {:ok, propietario} = Web.create_propietario(@create_attrs)
+    {:ok, propietario} = Propietario.create_propietario(@create_attrs)
     propietario
   end
 

@@ -1,14 +1,14 @@
 defmodule Prueba_LiftitWeb.VehiculoControllerTest do
   use Prueba_LiftitWeb.ConnCase
 
-  alias Prueba_Liftit.Web
+  alias Prueba_Liftit.Vehiculo
 
   @create_attrs %{marca: "some marca", placa: "some placa", propietario: "some propietario", tipo: "some tipo"}
   @update_attrs %{marca: "some updated marca", placa: "some updated placa", propietario: "some updated propietario", tipo: "some updated tipo"}
   @invalid_attrs %{marca: nil, placa: nil, propietario: nil, tipo: nil}
 
   def fixture(:vehiculo) do
-    {:ok, vehiculo} = Web.create_vehiculo(@create_attrs)
+    {:ok, vehiculo} = Vehiculo.create_vehiculo(@create_attrs)
     vehiculo
   end
 

@@ -1,11 +1,10 @@
 defmodule Prueba_LiftitWeb.VehiculoController do
   use Prueba_LiftitWeb, :controller
 
-  alias Prueba_Liftit
   alias Prueba_Liftit.Vehiculo
 
   def index(conn, _params) do
-    vehiculo = Vehiculo.list_vehiculo()
+    vehiculo = Vehiculo.list_vehiculos()
     render(conn, "index.html", vehiculo: vehiculo)
   end
 
