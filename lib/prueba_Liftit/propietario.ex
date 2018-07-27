@@ -46,9 +46,7 @@ defmodule Prueba_Liftit.Propietario do
   # end
 
   def list_propietarios do
-    Repo.all from p in Propietario,
-      preload: [:vehiculos]
-    # Repo.all(Propietario)
+    Repo.all from p in Propietario, preload: [:vehiculos]
   end
 
   @doc """
@@ -65,7 +63,10 @@ defmodule Prueba_Liftit.Propietario do
       ** (Ecto.NoResultsError)
 
   """
-  def get_propietario!(id), do: Repo.get!(Propietario, id)
+  def get_propietario!(id) do
+    Repo.get!(Propietario, id)
+    |> Repo.preload(:vehiculos)
+  end
 
 
   @doc """

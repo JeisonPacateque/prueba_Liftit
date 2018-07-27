@@ -28,15 +28,8 @@ defmodule Prueba_Liftit.Vehiculo do
     |> Repo.insert()
   end
 
-  # def create_vehiculo(%Vehiculo{} = vehiculo, attrs) do
-  #   vehiculo
-  #   |> changeset(attrs)
-  #   |> Repo.insert
-  # end
-
   def list_vehiculos do
-    Repo.all from v in Vehiculo,
-      preload: :propietario
+    Repo.all from v in Vehiculo, preload: [:propietario]
   end
 
   @doc """
@@ -53,8 +46,10 @@ defmodule Prueba_Liftit.Vehiculo do
       ** (Ecto.NoResultsError)
 
   """
-  def get_vehiculo!(id), do: Repo.get!(Propietario, id)
-
+  def get_vehiculo!(id) do
+    Repo.get!(Vehiculo, id)
+    |> Repo.preload(:propietario)
+  end
 
   @doc """
   Updates a vehiculo.
