@@ -1,6 +1,7 @@
 defmodule Prueba_Liftit.Propietario do
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
   alias Prueba_Liftit.Repo
   alias Prueba_Liftit.Propietario
 
@@ -45,7 +46,9 @@ defmodule Prueba_Liftit.Propietario do
   # end
 
   def list_propietarios do
-    Repo.all(Propietario)
+    Repo.all from p in Propietario,
+      preload: [:vehiculos]
+    # Repo.all(Propietario)
   end
 
   @doc """

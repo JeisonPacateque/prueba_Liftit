@@ -1,6 +1,7 @@
 defmodule Prueba_Liftit.Vehiculo do
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
   alias Prueba_Liftit.Repo
   alias Prueba_Liftit.Vehiculo
 
@@ -34,7 +35,8 @@ defmodule Prueba_Liftit.Vehiculo do
   # end
 
   def list_vehiculos do
-    Repo.all(Vehiculo)
+    Repo.all from v in Vehiculo,
+      preload: :propietario
   end
 
   @doc """
