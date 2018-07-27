@@ -1,5 +1,5 @@
-<h2>Edit Vehiculo</h2>
+<h2>Editar Vehiculo</h2>
 
 <%= render "form.html", Map.put(assigns, :action, vehiculo_path(@conn, :update, @vehiculo)) %>
 
-<span><%= link "Back", to: vehiculo_path(@conn, :index) %></span>
+<span><%= link "Volver atrás", to: vehiculo_path(@conn, :index) %></span>

@@ -1,4 +1,4 @@
-<h2>Show Propietario</h2>
+<h2>Propietario</h2>
 
 <ul>
 
@@ -14,10 +14,19 @@
 
   <li>
     <strong>Vehiculos:</strong>
-    <%= @propietario.vehiculos %>
+    <ol>
+        <%= if length(@propietario.vehiculos) != 0 do %>
+            <%= for v <- @propietario.vehiculos do %>
+                <li> Placa: <%= v.placa %> </li>
+            <% end %>
+        <% else %>
+            <p>No registra</p>
+        <% end %>
+    </ol>
+    <%#  @propietario.vehiculos %>
   </li>
 
 </ul>
 
-<span><%= link "Edit", to: propietario_path(@conn, :edit, @propietario) %></span>
-<span><%= link "Back", to: propietario_path(@conn, :index) %></span>
+<span><%= link "Editar", to: propietario_path(@conn, :edit, @propietario) %></span>
+<span><%= link "Volver atrás", to: propietario_path(@conn, :index) %></span>

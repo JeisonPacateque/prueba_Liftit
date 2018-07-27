@@ -1,4 +1,4 @@
-<h2>Show Vehiculo</h2>
+<h2>Vehiculo</h2>
 
 <ul>
 
@@ -18,11 +18,14 @@
   </li>
 
   <li>
-    <strong>Propietario:</strong>
-    <%= @vehiculo.propietario %>
+    <strong>Nombre del propietario:</strong>
+    <%= @vehiculo.propietario.nombre %>
   </li>
 
+  <li>
+      <strong>Cédula del propietario:</strong>
+      <%= @vehiculo.propietario.cedula %>
 </ul>
 
-<span><%= link "Edit", to: vehiculo_path(@conn, :edit, @vehiculo) %></span>
-<span><%= link "Back", to: vehiculo_path(@conn, :index) %></span>
+<span><%= link "Edita", to: vehiculo_path(@conn, :edit, @vehiculo) %></span>
+<span><%= link "Volver atrás", to: vehiculo_path(@conn, :index) %></span>

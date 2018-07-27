@@ -1,4 +1,4 @@
-<h2>Listing Vehiculo</h2>
+<h2>Lista de Vehiculos</h2>
 
 <table class="table">
   <thead>
@@ -6,8 +6,8 @@
       <th>Placa</th>
       <th>Marca</th>
       <th>Tipo</th>
-      <th>Propietario</th>
-
+      <th>Nombre del propietario</th>
+      <th>Cedula del propietario</th>
       <th></th>
     </tr>
   </thead>
@@ -17,16 +17,17 @@
       <td><%= vehiculo.placa %></td>
       <td><%= vehiculo.marca %></td>
       <td><%= vehiculo.tipo %></td>
-      <td><%= vehiculo.propietario %></td>
+      <td><%= vehiculo.propietario.nombre %></td>
+      <td><%= vehiculo.propietario.cedula %></td>
 
       <td class="text-right">
-        <span><%= link "Show", to: vehiculo_path(@conn, :show, vehiculo), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: vehiculo_path(@conn, :edit, vehiculo), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: vehiculo_path(@conn, :delete, vehiculo), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+        <span><%= link "Ver", to: vehiculo_path(@conn, :show, vehiculo), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Editar", to: vehiculo_path(@conn, :edit, vehiculo), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Borrar", to: vehiculo_path(@conn, :delete, vehiculo), method: :delete, data: [confirm: "¿Está seguro?"], class: "btn btn-danger btn-xs" %></span>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Vehiculo", to: vehiculo_path(@conn, :new) %></span>
+<span><%= link "Añadir Vehiculo", to: vehiculo_path(@conn, :new) %></span>
