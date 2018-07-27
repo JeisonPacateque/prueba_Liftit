@@ -27,5 +27,5 @@
       <%= @vehiculo.propietario.cedula %>
 </ul>
 
-<span><%= link "Edita", to: vehiculo_path(@conn, :edit, @vehiculo) %></span>
+<span><%= link "Editar", to: vehiculo_path(@conn, :edit, @vehiculo) %></span>
 <span><%= link "Volver atrás", to: vehiculo_path(@conn, :index) %></span>

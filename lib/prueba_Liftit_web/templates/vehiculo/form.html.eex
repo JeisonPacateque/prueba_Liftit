@@ -24,6 +24,11 @@
   </div>
 
   <div class="form-group">
+      <%= label f, :propietario_id, class: "control-label" %>
+      <%= text_input f, :propietario_id, class: "form-control" %>
+      <%= error_tag f, :propietario_id %>
+  </div>
+  <div class="form-group">
     <%= submit "Aceptar", class: "btn btn-primary" %>
   </div>
 <% end %>

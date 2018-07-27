@@ -30,4 +30,4 @@
   </tbody>
 </table>
 
-<span><%= link "Añadir Vehiculo", to: vehiculo_path(@conn, :new) %></span>
+<span><%#= link "Añadir Vehiculo", to: vehiculo_path(@conn, :new) %></span>

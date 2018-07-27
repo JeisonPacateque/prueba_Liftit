@@ -9,7 +9,7 @@ defmodule Prueba_Liftit.Vehiculo do
     field :marca, :string
     field :placa, :string
     field :tipo, :string
-    belongs_to :propietario, Prueba_Liftit.Propietario
+    belongs_to :propietario, Prueba_Liftit.Propietario, foreign_key: :propietario_id
 
     timestamps()
   end
@@ -23,9 +23,10 @@ defmodule Prueba_Liftit.Vehiculo do
   end
 
   def create_vehiculo(attrs \\ %{}) do
+    IO.inspect attrs
     %Vehiculo{}
     |> Vehiculo.changeset(attrs)
-    |> Repo.insert()
+    # |> Repo.insert()
   end
 
   def list_vehiculos do
@@ -96,5 +97,9 @@ defmodule Prueba_Liftit.Vehiculo do
   """
   def change_vehiculo(%Vehiculo{} = vehiculo) do
     Vehiculo.changeset(vehiculo, %{})
+  end
+
+  def change_vehiculo(%Vehiculo{} = vehiculo, propietario_id) do
+    Vehiculo.changeset(vehiculo, %{propietario: propietario_id})
   end
 end

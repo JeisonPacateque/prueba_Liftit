@@ -18,9 +18,11 @@ defmodule Prueba_LiftitWeb.Router do
 
     get "/", PageController, :index
 
+
     resources "/propietario", PropietarioController
 
     resources "/vehiculo", VehiculoController
+    post "/vehiculo/new/:p_id", VehiculoController, :new, as: :nuevo_vehiculo
   end
 
   # Other scopes may use custom stacks.
