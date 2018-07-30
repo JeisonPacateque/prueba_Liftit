@@ -17,16 +17,15 @@ defmodule Prueba_Liftit.Vehiculo do
   @doc false
   def changeset(vehiculo, attrs) do
     vehiculo
-    |> cast(attrs, [:placa, :marca, :tipo])
+    |> cast(attrs, [:placa, :marca, :tipo, :propietario_id])
     |> validate_required([:placa, :marca, :tipo])
     |> unique_constraint(:placa)
   end
 
   def create_vehiculo(attrs \\ %{}) do
-    IO.inspect attrs
     %Vehiculo{}
     |> Vehiculo.changeset(attrs)
-    # |> Repo.insert()
+    |> Repo.insert()
   end
 
   def list_vehiculos do
