@@ -100,9 +100,11 @@ defmodule Prueba_Liftit.Propietario do
 
   """
   def delete_propietario(%Propietario{} = propietario) do
-    Repo.delete(propietario)
+    propietario
+    |> Ecto.Changeset.change
+    |> Ecto.Changeset.no_assoc_constraint(:vehiculos)
+    |> Repo.delete
   end
-
   @doc """
   Returns an `%Ecto.Changeset{}` for tracking propietario changes.
 

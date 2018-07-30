@@ -4,9 +4,8 @@ defmodule Prueba_LiftitWeb.PropietarioController do
   alias Prueba_Liftit.Propietario
 
   def index(conn, _params) do
-    propietario = Propietario.list_propietarios()
-    IO.inspect(propietario)
-    render(conn, "index.html", propietario: propietario)
+    propietarios = Propietario.list_propietarios()
+    render(conn, "index.html", propietarios: propietarios)
   end
 
   def new(conn, _params) do
@@ -51,10 +50,17 @@ defmodule Prueba_LiftitWeb.PropietarioController do
 
   def delete(conn, %{"id" => id}) do
     propietario = Propietario.get_propietario!(id)
-    {:ok, _propietario} = Propietario.delete_propietario(propietario)
-
-    conn
-    |> put_flash(:info, "Propietario borrado éxitosamente.")
-    |> redirect(to: propietario_path(conn, :index))
+    case Propietario.delete_propietario(propietario) do
+      {:ok, _propietario} ->
+        conn
+        |> put_flash(:info, "Propietario borrado éxitosamente.")
+        |> redirect(to: propietario_path(conn, :index))
+      {:error, _} ->
+        propietarios = Propietario.list_propietarios()
+        conn
+        |> put_flash(:info, "Operación inválida, hay vehículos asociados a este propietario")
+        |> redirect(to: propietario_path(conn, :index, propietarios))
+    end
   end
 end
+
