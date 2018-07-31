@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-<%= for propietario <- @propietario do %>
+<%= for propietario <- @propietarios do %>
     <tr>
         <td class="text-right">
             <span><%= link "Ver", to: propietario_path(@conn, :show, propietario), class: "btn btn-xs" %></span>

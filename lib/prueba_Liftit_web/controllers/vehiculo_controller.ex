@@ -15,7 +15,6 @@ defmodule Prueba_LiftitWeb.VehiculoController do
   end
 
   def create(conn, %{"vehiculo" => vehiculo_params}) do
-    vehiculo_params = Map.merge(vehiculo_params, %{"propietario_id" => vehiculo_params["propietario_id"]} )
     case Vehiculo.create_vehiculo(vehiculo_params) do
       {:ok, vehiculo} ->
         conn
@@ -40,7 +39,6 @@ defmodule Prueba_LiftitWeb.VehiculoController do
   def update(conn, %{"id" => id, "vehiculo" => vehiculo_params}) do
     vehiculo = Vehiculo.get_vehiculo!(id)
 
-        IO.inspect vehiculo_params
     case Vehiculo.update_vehiculo(vehiculo, vehiculo_params) do
       {:ok, vehiculo} ->
         conn
