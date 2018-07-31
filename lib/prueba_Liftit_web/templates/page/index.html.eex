@@ -1,18 +1,36 @@
 <div class="jumbotron">
-  <h2><%= gettext "Bienvenido al %{name}", name: "Sistema de registro y admon. de propietarios y vehiculos" %></h2>
+    <h2><%= gettext "Bienvenido al %{name}", name: "Sistema de registro y admon. de propietarios y vehiculos" %></h2>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <%= form_for @conn, page_path(@conn, :index), [method: :get, name: :search], fn f -> %>
+
+            <div class="form-group">
+                <%# = label f, :search, class: "control-label" %>
+                <%= search_input f, :query, class: "form-control", placeholder: "Busque por placa, nombre o cédula" %>
+            </div>
+
+            <div class="form-group">
+                <%= submit "Buscar", class: "btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
 </div>
 
 <div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Menu:</h4>
-    <ul>
-      <li>
-          <%= link "Ver todos los propietarios", to: propietario_path(@conn, :index), class: "nav-link" %>
-      </li>
-      <li>
-          <%= link "Ver todos los vehiculos", to: vehiculo_path(@conn, :index), class: "nav-link" %>
-      </li>
-    </ul>
-  </div>
+    <div class="col-lg-6">
+        <h4>Menu:</h4>
+        <ul>
+            <li>
+                <%= link "Ver todos los propietarios", to: propietario_path(@conn, :index), class: "nav-link" %>
+            </li>
+            <li>
+                <%= link "Ver todos los vehiculos", to: vehiculo_path(@conn, :index), class: "nav-link" %>
+            </li>
+        </ul>
+
+    </div>
+
 
 </div>
